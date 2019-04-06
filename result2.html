@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<title> Poll Result</title>  
+</head>
+<body style="font-family: 'Finger Paint', cursive;">
+<div class="container">
+  <br>
+<h1 class="d-flex justify-content-center" style="font-family: cursive;"> Congrats!! Your new poll has been created</h1><br>
+<p class="h3 mb-5"style="font-family: cursive;text-align: center;"> Go and vote now!!</p>
+  <div id="write" class="text-center" style="font-size: 25px;"></div>
+    <br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <p id="write1" class="md-form" style="font-size: 40px;"></p>
+         </div>
+    <div class="col-sm">
+          <div id="like"></div> 
+    </div>
+    <div class="col-sm">
+     <div  style="font-size: 40px;">
+      <p class="option-size" id="size-one" name="one"></p>             
+    </div>
+    </div>
+  </div>
+</div>   
+<br>
+   <div class="container">
+     <div class="row">
+      <div class="col-sm">
+        <p id="write2" style="font-size: 40px;">  </p>   
+      </div>
+      <div class="col-sm">
+       <div id="like1"></div>
+        </div>
+         <div class="col-sm">
+          <div style="font-size: 40px;">
+           <p class="option-size" id="size-two" name="two"></p>             
+          </div>
+        </div>
+      </div>
+   </div>
+    <br>
+    <br>
+    <div class="container">
+     <div class="row">
+      <div class="col-sm">
+       <p id="write3" style="font-size: 40px;"> </p>     
+      </div>
+    <div class="col-sm">
+      <div id="like2"></div>
+       </div>
+        <div class="col-sm" >
+          <div style="font-size: 40px;">
+           <p class="option-size" id="size-three" name="three"></p>         
+          </div>
+        </div>
+     </div>
+    </div>      
+</div>
+<br>
+<br>
+<br>
+
+<footer class="page-footer font-small blue">
+  <div class="footer-copyright text-center py-3" style="background-color:#0d47a1; ">
+    <p style="font-size: 30px;color: white "> <strong style="font-size: 35px; color:white">Note:</strong>You can vote for only one option at a time </p>
+  </div>
+</footer>
+  <!--script tag--> 
+<script type="text/javascript">
+   function getParameterByName(name, url) 
+   {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+   }
+var sn = getParameterByName('heading');
+document.getElementById("write").innerHTML = sn;
+ function getParameterByName(name, url)
+  {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
+var sn1 = getParameterByName('getvalue');
+if(sn1==2)
+{
+ function getParameterByName(name, url)
+  {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
+var sn = getParameterByName('option1');
+document.getElementById("write1").innerHTML = sn;
+var img = document.createElement("button");
+img.setAttribute('id','btn1');
+img.setAttribute('onclick','addleft()');
+img.setAttribute('class','btn btn-primary');
+img.innerHTML="Vote";
+img.style.fontSize="25px";
+var src = document.getElementById("like");
+src.appendChild(img);
+ function getParameterByName(name, url)
+  {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
+var sn = getParameterByName('option2');
+document.getElementById("write2").innerHTML = sn;
+var img = document.createElement("button");
+img.setAttribute('id','btn2');
+img.setAttribute('onclick','addright()');
+img.setAttribute('class','btn btn-primary');
+img.innerHTML="Vote";
+img.style.fontSize="25px";
+var src = document.getElementById("like1");
+src.appendChild(img);
+var pointA = 1;
+var pointB = 1;
+var totalVotes = pointA + pointB ;
+function addleft()
+{
+   document.getElementById("btn1").disabled=true;
+   document.getElementById("btn2").disabled=false; 
+ 
+   pointA += 1;
+   totalVotes += 1;
+   updatePoints();
+   console.log(pointA + ' '+ pointB );
+}
+function addright()
+{
+   document.getElementById("btn1").disabled=false;
+   document.getElementById("btn2").disabled=true;
+   
+   pointB += 1; 
+   totalVotes += 1;
+   updatePoints();
+   console.log(pointA + ' '+ pointB);
+}
+function updatePoints()
+{
+    var percentA = (pointA / totalVotes) * 100;
+    var percentB = (pointB / totalVotes) * 100;
+    var size = percentA + "% " + percentB + "%";
+    document.getElementById("size-one").innerHTML = Math.round(percentA) + '%';
+    document.getElementById("size-two").innerHTML = Math.round(percentB) + '%';
+   if(Math.round(percentA)>Math.round(percentB))
+      {
+        document.getElementById("size-one").style.color="blue";
+        document.getElementById("size-two").style.color="red";
+      }
+      else if(Math.round(percentA)<Math.round(percentB))
+      {
+        document.getElementById("size-one").style.color="red";
+        document.getElementById("size-two").style.color="blue";
+      }
+      else
+      {
+        document.getElementById("size-one").style.color="blue";
+        document.getElementById("size-two").style.color="blue";
+      }
+    }
+  }
+
+else
+{
+    function getParameterByName(name, url) 
+     {
+       if (!url) url = window.location.href;
+       name = name.replace(/[\[\]]/g, '\\$&');
+       var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+       if (!results) return null;
+       if (!results[2]) return '';
+       return decodeURIComponent(results[2].replace(/\+/g, ' '));
+     }
+var sn = getParameterByName('option1');
+document.getElementById("write1").innerHTML = sn;
+var img = document.createElement("button");
+img.setAttribute('id','btn1');
+img.setAttribute('class','btn btn-primary');
+img.setAttribute('onclick','addleft()');
+img.innerHTML="Vote";
+img.style.fontSize="25px";
+var src = document.getElementById("like");
+src.appendChild(img);
+ function getParameterByName(name, url)
+  {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+var sn = getParameterByName('option2');
+document.getElementById("write2").innerHTML = sn;
+var img = document.createElement("button");
+img.setAttribute('id','btn2');
+img.setAttribute('onclick','addright()');
+img.setAttribute('class','btn btn-primary');
+img.innerHTML="Vote";
+img.style.fontSize="25px";
+var src = document.getElementById("like1");
+src.appendChild(img);
+ function getParameterByName(name, url)
+  {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+var sn = getParameterByName('option3');
+document.getElementById("write3").innerHTML = sn;
+var img = document.createElement("button");
+img.setAttribute('id','btn3');
+img.setAttribute('onclick','addright1()');
+img.setAttribute('class','btn btn-primary');
+img.innerHTML="Vote";
+img.style.fontSize="25px";
+var src = document.getElementById("like2");
+src.appendChild(img);
+var pointA = 1;
+var pointB = 1;
+var pointC = 1;
+var totalVotes = pointA + pointB + pointC; 
+function addleft()
+{
+    document.getElementById("btn1").disabled=true;
+    document.getElementById("btn2").disabled=false;
+    document.getElementById("btn3").disabled=false;
+   
+    pointA += 1;
+    totalVotes += 1;
+    updatePoints();
+    console.log(pointA + ' '+ pointB + ''+ pointC);
+}
+function addright()
+{
+    document.getElementById("btn1").disabled=false;
+    document.getElementById("btn2").disabled=true;
+    document.getElementById("btn3").disabled=false;
+    
+    pointB += 1; 
+    totalVotes += 1;
+    updatePoints();
+    console.log(pointA + ' '+ pointB +''+pointC);
+}
+function addright1()
+{
+    document.getElementById("btn1").disabled=false;
+    document.getElementById("btn2").disabled=false;
+    document.getElementById("btn3").disabled=true;
+    
+    pointC += 1;
+    totalVotes += 1;
+    updatePoints();
+    console.log(pointA + ' '+ pointB + '' +pointC);
+}
+function updatePoints()
+{
+     var percentA = (pointA / totalVotes) * 100;
+     var percentB = (pointB / totalVotes) * 100;
+     var percentC = (pointC / totalVotes) * 100;
+     var size = percentA + "% " + percentB + "%" +percentC + "%";
+     document.getElementById("size-one").innerHTML = Math.round(percentA) + '%';
+     document.getElementById("size-two").innerHTML = Math.round(percentB) + '%';
+     document.getElementById("size-three").innerHTML = Math.round(percentC)+'%';
+    if((Math.round(percentA)>Math.round(percentB))&&(Math.round(percentA)>Math.round(percentC)))
+    {
+        document.getElementById("size-one").style.color="blue";
+        document.getElementById("size-two").style.color="red";
+        document.getElementById("size-three").style.color="red";
+  }
+  else if((Math.round(percentB)>Math.round(percentA))&&(Math.round(percentB)>Math.round(percentC)))
+    {
+        document.getElementById("size-one").style.color="red";
+        document.getElementById("size-two").style.color="blue";
+        document.getElementById("size-three").style.color="red";
+  }
+  else if((Math.round(percentC)>Math.round(percentA))&&(Math.round(percentC)>Math.round(percentB)))
+    {
+        document.getElementById("size-one").style.color="red";
+        document.getElementById("size-two").style.color="red";
+        document.getElementById("size-three").style.color="blue";
+  }
+   else if((Math.round(percentA)==Math.round(percentB))&&(Math.round(percentA)>Math.round(percentC)))
+    {
+        document.getElementById("size-one").style.color="blue";
+        document.getElementById("size-two").style.color="blue";
+        document.getElementById("size-three").style.color="red";
+  }
+  else if((Math.round(percentB)==Math.round(percentC))&&(Math.round(percentB)>Math.round(percentA)))
+    {
+        document.getElementById("size-one").style.color="red";
+        document.getElementById("size-two").style.color="blue";
+        document.getElementById("size-three").style.color="blue";
+  }
+  else if((Math.round(percentA)==Math.round(percentC))&&(Math.round(percentA)>Math.round(percentB)))
+    {
+        document.getElementById("size-one").style.color="blue";
+        document.getElementById("size-two").style.color="red";
+        document.getElementById("size-three").style.color="blue";
+  }
+  else{
+     document.getElementById("size-one").style.color="blue";
+        document.getElementById("size-two").style.color="blue";
+        document.getElementById("size-three").style.color="blue";
+  }
+}}
+</script>
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/js/mdb.min.js"></script>
+</html>

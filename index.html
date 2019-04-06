@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<title>Poll Creation</title>
+</head>
+<body  style="background-color: white;">
+  <br>
+  <br>
+  <br>
+  <div class="container d-flex flex-column w-50 justify-content-center">
+     <h1  class="d-flex justify-content-center" style="font-family: cursive;"> Online poll maker</h1>
+     <hr width="10%" size="18" style="background-color:black ">
+     <br>
+     <br>
+ <!-- Default form subscription -->
+<form class="text-center border border-light p-4" action="result2.html" method="GET">
+    <p class="h3 mb-5"style="font-family: cursive;">Create poll instantly</p>
+    <div class="container">
+     <div class="row">
+      <div class="col col-example" style="font-family: cursive;font-size: 20px">  Name of the poll</div>
+        <div class="col col-example"><input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Enter poll name here" name="heading" required="true"></div>
+         <div class="w-100"></div>
+            <div class="col col-example"style="font-family: cursive; font-size: 20px">No of options</div>
+               <div class="col col-example"> <input #focusInput mdbActive type="number" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="Either 2 or 3"   onkeyup="add()" name="getvalue" required="true" min="2" max="3"></div>
+      </div>
+<p id="place"></p>
+<p id="place1"></p>
+<p id="place2"></p>
+     <button class="btn blue-gradient" style="color:white">create poll</button>
+</form>
+  </div>
+   </div>
+<script type="text/javascript">
+function add()
+{
+  var i=  document.getElementById("defaultSubscriptionFormEmail").value;
+  if(i==2)
+   {
+     document.getElementById("place").innerHTML=" <form action='result2.html method='GET'><input type='text' name='option1' class='col-md-4 div' required placeholder='option1'></form>"
+     document.getElementById("place1").innerHTML="<form action='result2.html' method='GET'><input type='text' name='option2'class='col-md-4 div' placeholder='option2' required> </form>"
+     document.getElementById("place2").style.display="none";
+     document.getElementById("place1").style.display="block";
+     document.getElementById("place").style.display="block";
+   }
+else if(i==3)
+  {
+     document.getElementById("place").innerHTML=" <form action='result2.html' method='GET'><input type='text' name='option1' class='col-md-4 div'placeholder='option1' required></form>"
+     document.getElementById("place1").innerHTML="<form action='result2.html'method='GET'><input type='text' name='option2'  class='col-md-4 div'placeholder='option2' required></form>"
+     document.getElementById("place2").innerHTML=" <form action='result2.html'method='GET'><input type='text' name='option3'class='col-md-4 div'placeholder='option3' required></form>"
+     document.getElementById("place1").style.display="block";
+     document.getElementById("place2").style.display="block";
+     document.getElementById("place").style.display="block";
+  }
+else
+ {
+   document.getElementById("place").style.display="none";
+   document.getElementById("place1").style.display="none";
+   document.getElementById("place2").style.display="none";
+ }
+}
+</script>
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/js/mdb.min.js"></script>
+</html>
